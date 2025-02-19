@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <!-- Configuração do Faces Servlet -->
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup> <!-- Carrega o servlet durante a inicialização -->
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern> <!-- Mapeia URLs que terminam com .xhtml para o Faces Servlet -->
+    </servlet-mapping>
+
+    <!-- Necessário para PrimeFaces -->
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value> <!-- Define o estágio do projeto como desenvolvimento -->
+    </context-param>
+
+    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>saga</param-value> <!-- Escolha um tema conforme desejado -->
+    </context-param>
+
+    <!-- Para o PrimeFaces 11, você pode precisar adicionar o seguinte context-param -->
+    <context-param>
+        <param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
+        <param-value>true</param-value> <!-- Define como interpretar valores de strings vazias -->
+    </context-param>
+    
+    <context-param>
+        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+        <param-value>server</param-value> <!-- Ou "client" -->
+    </context-param>
+
+
+    <context-param>
+        <param-name>org.omnifaces.SOCKET_ENDPOINT_ENABLED</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    <context-param>
+    <param-name>org.omnifaces.SERVLET_PUSH_ENABLED</param-name>
+    <param-value>true</param-value>
+</context-param>
+
+<servlet>
+    <servlet-name>PushServlet</servlet-name>
+    <servlet-class>org.omnifaces.cdi.push.Socket</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>PushServlet</servlet-name>
+    <url-pattern>/omnifaces.push/*</url-pattern>
+</servlet-mapping>
+
+
+    <!-- Mapeamento de Recursos -->
+    <servlet>
+        <servlet-name>Resource Servlet</servlet-name>
+        <servlet-class>org.primefaces.webapp.ResourceServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Resource Servlet</servlet-name>
+        <url-pattern>/primefaces_resource/*</url-pattern> <!-- Mapeia URLs para recursos do PrimeFaces -->
+    </servlet-mapping>
+
+    <!-- Configuração para o JSF -->
+    <listener>
+        <listener-class>com.sun.faces.config.ConfigureListener</listener-class> <!-- Ouve eventos de configuração do JSF -->
+    </listener>
+
+    <welcome-file-list>
+        <welcome-file>index.xhtml</welcome-file> <!-- Define a página de boas-vindas  -->
+    </welcome-file-list>
+   
+</web-app>

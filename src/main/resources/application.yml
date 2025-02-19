@@ -2,18 +2,23 @@ spring:
   threads:
     virtual:
       enabled: true    
+
 joinfaces:
   primefaces:
     theme: vela
   faces:
     project-stage: Production
     facelets-libraries: /tags/tags.taglib.xml
+  omnifaces:
+    faces-views-enabled: true
+
 tomcat:
   version: @tomcat.version@
 jetty:
   version: @jetty.version@
 undertow:
   version: @undertow.version@
+
 application-users:
   users-credentials:
     - username: persapiens
@@ -22,3 +27,10 @@ application-users:
     - username: nyilmaz
       password: qwe
       authorities: ROLE_USER
+
+weld:
+  dev-mode: true
+
+omnifaces:
+  socket-endpoint-enabled: true
+  servlet-push-enabled: true

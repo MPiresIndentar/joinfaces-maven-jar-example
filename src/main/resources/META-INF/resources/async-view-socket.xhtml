@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"  
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:o="http://omnifaces.org/ui">
+
+    <h:head>
+        <title>Long process</title>
+        <o:socket channel="statusChannel" onmessage="handleMessage" scope="session"/>
+        <script>
+            function handleMessage(message) {
+                console.log("Mensagem recebida:", message);
+                
+                let data = JSON.parse(message);
+                
+                console.log("Dados parseados:", data);
+                
+                let statusMessage = document.getElementById('formProcess:statusMessage');
+                if (data.segundos !== undefined) {
+                    statusMessage.innerHTML = "Segundos: " + data.segundos;
+                } else {
+                    statusMessage.innerHTML = data.mensagem;
+                }
+            }
+        </script>
+    </h:head>
+    <h:body>
+        <div class="header">
+            <h1 class="title">Teste processo asyncrono</h1>
+        </div>
+
+        <p:panel id="pnCadastro" class="pnCadastro"> 
+            <h:form id="formProcess">
+                <p:commandButton value="#{longRunningProcessBean.mensagem}" action="#{longRunningProcessBean.contaSegundos()}" />
+                <h:outputText id="statusMessage" value="#{longRunningProcessBean.segundos}" />
+            </h:form>
+        </p:panel>
+    </h:body>
+</html>

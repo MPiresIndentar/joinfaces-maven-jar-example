@@ -18,6 +18,7 @@ package org.joinfaces.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /**
  * JoinFaces Example Configuration class.
@@ -25,6 +26,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Marcelo Fernandes
  */
 @SpringBootApplication
+@ServletComponentScan
 public class JoinFacesExampleApplication {
 
 	/**

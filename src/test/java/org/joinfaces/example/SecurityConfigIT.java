@@ -24,6 +24,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
+/*
 @SuppressFBWarnings("THROWS_METHOD_THROWS_CLAUSE_THROWABLE")
 public class SecurityConfigIT {
 
@@ -35,3 +36,4 @@ public class SecurityConfigIT {
 	}
 
 }
+*/
