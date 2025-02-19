@@ -8,18 +8,10 @@ import jakarta.inject.Named;
 import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
-import org.omnifaces.cdi.Push;
 import org.omnifaces.cdi.PushContext;
-import org.omnifaces.cdi.ViewScoped;
-import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.web.context.annotation.SessionScope;
 
 @Named
 @SessionScoped
-//@SessionScoped
-//@ViewScoped
-/*spring */
-//@SessionScope
 public class LongRunningProcessBean implements Serializable {
 
     @Inject
@@ -28,18 +20,6 @@ public class LongRunningProcessBean implements Serializable {
     /*bean cdi customizado*/
     @Inject
      private PushContext pushContext;
-    
-    
-    /* bean spring
-    @Autowired
-    private PushContext pushContext;
-    */
-   
-    /*sem spring
-    @Inject
-    @Push(channel = "statusChannel";
-    private PushContext pushContext;
-    */
 
     @Setter
     @Getter
@@ -50,7 +30,7 @@ public class LongRunningProcessBean implements Serializable {
     private String mensagem = "iniciar";
     
     public void contaSegundos(){
-        int x = 2;
+     
         longRunningProcessService.startLongRunningProcess(()->{
                     try{
                         System.out.println("contagem iniciou");

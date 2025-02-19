@@ -13,7 +13,7 @@
     <groupId>org.joinfaces</groupId>
     <artifactId>joinfaces-example</artifactId>
     <version>5.5.x</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>JoinFaces Example</name>
     <description>Example project for Jsf Spring Boot Starter</description>

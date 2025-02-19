@@ -12,6 +12,7 @@ import org.omnifaces.cdi.PushContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/*EM USO COM SPRING BOOT */
 @Configuration
 public class PushContextProvider {
 

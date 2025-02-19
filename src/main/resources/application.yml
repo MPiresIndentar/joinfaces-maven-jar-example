@@ -3,11 +3,11 @@ spring:
     virtual:
       enabled: true    
 
-joinfaces:
+oinfaces:
   primefaces:
-    theme: vela
+    theme: omega 
   faces:
-    project-stage: Production
+    project-stage: development  
     facelets-libraries: /tags/tags.taglib.xml
   omnifaces:
     faces-views-enabled: true
